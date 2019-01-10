@@ -11,7 +11,7 @@
     "deploy": "rm -rf .publish && npm run build && github-pages-deploy",
     "pretest": "npm run build",
     "test": "jest",
-    "prepublish": "npm test",
+    "prepublish": "babel src --out-dir lib",
     "clean": "rm dist/* && rm example/bundle*"
   },
   "github-pages-deploy": {
