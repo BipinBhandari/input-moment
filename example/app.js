@@ -1,10 +1,10 @@
-import '../src/less/input-moment.less';
-import './app.less';
-import moment from 'moment';
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import InputMoment from '../src/input-moment';
-import packageJson from '../package.json';
+import "../src/less/input-moment.less";
+import "./app.less";
+import moment from "moment";
+import React, { Component } from "react";
+import ReactDOM from "react-dom";
+import InputMoment from "../src/input-moment";
+import packageJson from "../package.json";
 
 class App extends Component {
   state = {
@@ -16,7 +16,7 @@ class App extends Component {
   };
 
   handleSave = () => {
-    console.log('saved', this.state.m.format('llll'));
+    console.log("saved", this.state.m.format("llll"));
   };
 
   render() {
@@ -28,13 +28,15 @@ class App extends Component {
         <h2>{packageJson.description}</h2>
         <form>
           <div className="input">
-            <input type="text" value={this.state.m.format('llll')} readOnly />
+            <input type="text" value={this.state.m.format("llll")} readOnly />
           </div>
           <InputMoment
             moment={this.state.m}
             onChange={this.handleChange}
             minStep={5}
+            minDate={moment()}
             onSave={this.handleSave}
+            amPmFormat
           />
         </form>
       </div>
@@ -42,4 +44,4 @@ class App extends Component {
   }
 }
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById("app"));
